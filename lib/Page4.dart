@@ -1,12 +1,15 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Page4 extends StatefulWidget {
-  Page4({Key? key, required this.title}) : super(key: key);
+  const Page4({super.key, required this.title});
 
   final String title;
 
   @override
+  // ignore: library_private_types_in_public_api
   _Page4State createState() => _Page4State();
 }
 
@@ -18,7 +21,9 @@ class _Page4State extends State<Page4> {
   void _launchYouTube() async {
     final Uri url = Uri.parse('vnd.youtube://youtu.be/wdbJ2yplv4g?si=6u0UJjhWko0pedbr');
 
+    // ignore: deprecated_member_use
     if (await canLaunch(url.toString())) {
+      // ignore: deprecated_member_use
       await launch(url.toString(), forceSafariVC: false, forceWebView: false);
     } else {
       // Fallback to open in a browser if the YouTube app is not installed
@@ -151,6 +156,8 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

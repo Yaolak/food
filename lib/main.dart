@@ -1,4 +1,3 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'Page1.dart'; // นำเข้าไฟล์ Page1
 import 'Page2.dart'; // นำเข้าไฟล์ Page2
@@ -8,12 +7,19 @@ import 'Page5.dart'; // นำเข้าไฟล์ Page5
 import 'Page6.dart'; // นำเข้าไฟล์ Page6
 import 'Page7.dart'; // นำเข้าไฟล์ Page7
 
-void main() async{
-   WidgetsFlutterBinding.ensureInitialized();
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -37,53 +43,51 @@ class MyApp extends StatelessWidget {
   }
 }
 
+// ignore: use_key_in_widget_constructors
 class HomeScreen extends StatelessWidget {
- 
   final List<Map<String, String>> foodItems = [
     {
       'image': 'pic/steak.jpg',
-      'icon': 'Icons.restaurant_menu', 
+      'icon': 'Icons.restaurant_menu',
       'title': 'สเต็กเนื้อ',
     },
     {
       'image': 'pic/spaghetti.jpg',
-      'icon': 'Icons.pasta', 
+      'icon': 'Icons.pasta',
       'title': 'สปาเก็ตตี้',
     },
     {
       'image': 'pic/Macaroni.jpg',
-      'icon': 'Icons.fastfood', 
+      'icon': 'Icons.fastfood',
       'title': 'มักกะโรนีไส้กรอก',
     },
     {
       'image': 'pic/shrimp.jpg',
-      'icon': 'Icons.seafood', 
+      'icon': 'Icons.seafood',
       'title': 'กุ้งอบชีส',
     },
   ];
 
-
   final List<Map<String, String>> snackItems = [
     {
       'image': 'pic/bingsu.jpg',
-      'icon': 'Icons.icecream', 
+      'icon': 'Icons.icecream',
       'title': 'บิงซูสตอเบอร์รี่',
     },
     {
       'image': 'pic/toast.jpg',
-      'icon': 'Icons.toast', 
+      'icon': 'Icons.toast',
       'title': 'ขนมปังปิ้ง',
     },
     {
       'image': 'pic/icecream.jpg',
-      'icon': 'Icons.icecream', 
+      'icon': 'Icons.icecream',
       'title': 'ไอศกรีมรสนม',
     },
   ];
 
   @override
   Widget build(BuildContext context) {
-    
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
 
@@ -93,9 +97,8 @@ class HomeScreen extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center, 
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
@@ -103,9 +106,8 @@ class HomeScreen extends StatelessWidget {
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
             ),
-            
-            Container(
-              height: screenHeight * 0.3, 
+            SizedBox(
+              height: screenHeight * 0.3,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: foodItems.length,
@@ -113,46 +115,45 @@ class HomeScreen extends StatelessWidget {
                   final item = foodItems[index];
                   return GestureDetector(
                     onTap: () {
-                   
                       Navigator.pushNamed(context, '/page${index + 1}');
                     },
-                    child: Center( 
+                    child: Center(
                       child: Card(
                         elevation: 8.0,
                         margin: EdgeInsets.symmetric(horizontal: 12.0),
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-                        child: Container(
-                          width: screenWidth * 0.6, 
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(16)),
+                        child: SizedBox(
+                          width: screenWidth * 0.6,
                           child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center, 
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Image.asset(
                                 item['image']!,
-                                width: screenWidth * 0.5, 
-                                height: screenWidth * 0.5, 
+                                width: screenWidth * 0.5,
+                                height: screenWidth * 0.5,
                                 fit: BoxFit.cover,
                               ),
                               SizedBox(height: 12),
-                            
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                 
                                   IconButton(
                                     onPressed: () {
-                                      
-                                      Navigator.pushNamed(context, '/page${index + 1}');
+                                      Navigator.pushNamed(
+                                          context, '/page${index + 1}');
                                     },
                                     icon: Icon(
-                                      Icons.restaurant_menu, 
-                                      size: 24, 
+                                      Icons.restaurant_menu,
+                                      size: 24,
                                       color: Colors.blue,
                                     ),
                                   ),
-                              
                                   Text(
                                     item['title']!,
-                                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                                    style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold),
                                   ),
                                 ],
                               ),
@@ -165,11 +166,9 @@ class HomeScreen extends StatelessWidget {
                 },
               ),
             ),
-            
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 16.0), 
+              padding: const EdgeInsets.symmetric(vertical: 16.0),
             ),
-          
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
@@ -177,9 +176,8 @@ class HomeScreen extends StatelessWidget {
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
             ),
-            
-            Container(
-              height: screenHeight * 0.3, 
+            SizedBox(
+              height: screenHeight * 0.3,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: snackItems.length,
@@ -187,46 +185,45 @@ class HomeScreen extends StatelessWidget {
                   final item = snackItems[index];
                   return GestureDetector(
                     onTap: () {
-                     
                       Navigator.pushNamed(context, '/page${index + 5}');
                     },
-                    child: Center( 
+                    child: Center(
                       child: Card(
                         elevation: 8.0,
                         margin: EdgeInsets.symmetric(horizontal: 12.0),
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-                        child: Container(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(16)),
+                        child: SizedBox(
                           width: screenWidth * 0.6,
                           child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center, 
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Image.asset(
                                 item['image']!,
-                                width: screenWidth * 0.5, 
-                                height: screenWidth * 0.5, 
+                                width: screenWidth * 0.5,
+                                height: screenWidth * 0.5,
                                 fit: BoxFit.cover,
                               ),
                               SizedBox(height: 12),
-                              
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                 
                                   IconButton(
                                     onPressed: () {
-                                     
-                                      Navigator.pushNamed(context, '/page${index + 5}');
+                                      Navigator.pushNamed(
+                                          context, '/page${index + 5}');
                                     },
                                     icon: Icon(
-                                      Icons.icecream, 
+                                      Icons.icecream,
                                       size: 24,
                                       color: Colors.blue,
                                     ),
                                   ),
-                                  
                                   Text(
                                     item['title']!,
-                                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                                    style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold),
                                   ),
                                 ],
                               ),

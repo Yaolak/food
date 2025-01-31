@@ -1,12 +1,15 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Page1 extends StatefulWidget {
-  Page1({Key? key, required this.title}) : super(key: key);
+  const Page1({super.key, required this.title});
 
   final String title;
 
   @override
+  // ignore: library_private_types_in_public_api
   _Page1State createState() => _Page1State();
 }
 
@@ -17,7 +20,9 @@ class _Page1State extends State<Page1> {
   void _launchYouTube() async {
     final Uri url = Uri.parse('vnd.youtube://www.youtube.com/watch?v=JvBUqL6Mwyg');
     
+    // ignore: deprecated_member_use
     if (await canLaunch(url.toString())) {
+      // ignore: deprecated_member_use
       await launch(url.toString(), forceSafariVC: false, forceWebView: false);
     } else {
       throw 'ไม่สามารถเปิด URL ได้: $url';
@@ -149,6 +154,8 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
