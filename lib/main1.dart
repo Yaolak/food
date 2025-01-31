@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'Page1.dart';
 import 'Page2.dart';
@@ -7,10 +8,11 @@ import 'Page5.dart';
 import 'Page6.dart';  
 import 'Page7.dart'; 
 
-void main() {
+void main() async{
+   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
-
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

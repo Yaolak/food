@@ -23,6 +23,7 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:8.2.1'
+    implementation(platform("com.google.firebase:firebase-bom:33.8.0"))
     }
 }
 

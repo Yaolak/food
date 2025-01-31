@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'Page1.dart'; // นำเข้าไฟล์ Page1
 import 'Page2.dart'; // นำเข้าไฟล์ Page2
@@ -7,7 +8,8 @@ import 'Page5.dart'; // นำเข้าไฟล์ Page5
 import 'Page6.dart'; // นำเข้าไฟล์ Page6
 import 'Page7.dart'; // นำเข้าไฟล์ Page7
 
-void main() {
+void main() async{
+   WidgetsFlutterBinding.ensureInitialized();
   runApp(MyApp());
 }
 
