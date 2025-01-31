@@ -19,7 +19,8 @@ class _Page6State extends State<Page6> {
 
   // ฟังก์ชันสำหรับเปิด URL
   void _launchYouTube() async {
-    final Uri url = Uri.parse('vnd.youtube://youtu.be/7Kp67gQYQv0?si=MFQCp4bwaCjIrpNR');
+    final Uri url =
+        Uri.parse('vnd.youtube://youtu.be/7Kp67gQYQv0?si=MFQCp4bwaCjIrpNR');
 
     // ignore: deprecated_member_use
     if (await canLaunch(url.toString())) {
@@ -35,7 +36,8 @@ class _Page6State extends State<Page6> {
   final Map<String, String> menuDetails = {
     'title': 'ขนมปังปิ้ง',
     'image': 'pic/toast.jpg',
-    'description': 'ขนมปังปิ้งกรอบราดนม \n\n วิธีทํา\n 1 ปิ้งขนมปังให้กรอบ \n 2 ทาเนยบนขนมปังที่ปิ้งแล้ว\n 3 ผสมนมข้นหวานและนมสดเข้าด้วยกัน แล้วราดลงบนขนมปัง',
+    'description':
+        'ขนมปังปิ้งกรอบราดนม \n\n วิธีทํา\n 1 ปิ้งขนมปังให้กรอบ \n 2 ทาเนยบนขนมปังที่ปิ้งแล้ว\n 3 ผสมนมข้นหวานและนมสดเข้าด้วยกัน แล้วราดลงบนขนมปัง',
     'price': '190 บาท',
   };
 
@@ -63,7 +65,8 @@ class _Page6State extends State<Page6> {
           IconButton(
             icon: Icon(Icons.home),
             onPressed: () {
-              Navigator.popUntil(context, (route) => route.isFirst);  // กลับไปยังหน้าหลัก
+              Navigator.popUntil(
+                  context, (route) => route.isFirst); // กลับไปยังหน้าหลัก
             },
           ),
         ],
@@ -78,7 +81,7 @@ class _Page6State extends State<Page6> {
                 // ปุ่มไปยังหน้าอื่น
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, '/page7');  // ไปยังหน้า page7
+                    Navigator.pushNamed(context, '/page7'); // ไปยังหน้า page7
                   },
                   child: Text('ไปหน้าที่เจ็ด'),
                 ),
@@ -93,8 +96,10 @@ class _Page6State extends State<Page6> {
                 SizedBox(height: 10),
                 Image.asset(
                   menuDetails['image']!,
-                  width: MediaQuery.of(context).size.width * 0.8, // ปรับขนาดให้เหมาะสมกับหน้าจอ
-                  height: MediaQuery.of(context).size.width * 0.5, // ปรับขนาดให้เหมาะสมกับหน้าจอ
+                  width: MediaQuery.of(context).size.width *
+                      0.8, // ปรับขนาดให้เหมาะสมกับหน้าจอ
+                  height: MediaQuery.of(context).size.width *
+                      0.5, // ปรับขนาดให้เหมาะสมกับหน้าจอ
                   fit: BoxFit.cover,
                 ),
                 SizedBox(height: 10),
@@ -139,7 +144,7 @@ class _Page6State extends State<Page6> {
 
                 // ปุ่มเปิด YouTube
                 ElevatedButton(
-                  onPressed: _launchYouTube,  // เมื่อกดปุ่มจะเปิด YouTube
+                  onPressed: _launchYouTube, // เมื่อกดปุ่มจะเปิด YouTube
                   child: Text('เปิด YouTube'),
                 ),
               ],

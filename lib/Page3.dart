@@ -19,7 +19,8 @@ class _Page3State extends State<Page3> {
 
   // ฟังก์ชันเปิด YouTube
   void _launchYouTube() async {
-    final Uri url = Uri.parse('vnd.youtube://youtu.be/TT2bwSqYHo4?si=NdVX2H4TX2ZfT5KV');
+    final Uri url =
+        Uri.parse('vnd.youtube://youtu.be/TT2bwSqYHo4?si=NdVX2H4TX2ZfT5KV');
 
     // ignore: deprecated_member_use
     if (await canLaunch(url.toString())) {
@@ -35,7 +36,8 @@ class _Page3State extends State<Page3> {
   final Map<String, String> menuDetails = {
     'title': 'มักกะโรนีไส้กรอก',
     'image': 'pic/Macaroni.jpg',
-    'description': 'มักกะโรนีไส้กรอก\n\nวิธีทำมักกะโรนีไส้กรอก\n1 ต้มมักกะโรนีในน้ำเดือดจนสุกแล้วสะเด็ดน้ำ\n 2 ผัดหอมใหญ่และกระเทียมในน้ำมันจนหอม ใส่ไส้กรอกผัดจนสุก \n 3 เติมซอสมะเขือเทศและปรุงรสด้วยเกลือและพริกไทย\n 4 ใส่มักกะโรนีที่ต้มแล้วลงไปผัดให้เข้ากัน',
+    'description':
+        'มักกะโรนีไส้กรอก\n\nวิธีทำมักกะโรนีไส้กรอก\n1 ต้มมักกะโรนีในน้ำเดือดจนสุกแล้วสะเด็ดน้ำ\n 2 ผัดหอมใหญ่และกระเทียมในน้ำมันจนหอม ใส่ไส้กรอกผัดจนสุก \n 3 เติมซอสมะเขือเทศและปรุงรสด้วยเกลือและพริกไทย\n 4 ใส่มักกะโรนีที่ต้มแล้วลงไปผัดให้เข้ากัน',
     'price': '80 บาท',
   };
 
@@ -63,7 +65,8 @@ class _Page3State extends State<Page3> {
           IconButton(
             icon: Icon(Icons.home),
             onPressed: () {
-              Navigator.popUntil(context, (route) => route.isFirst);  // กลับไปยังหน้าหลัก
+              Navigator.popUntil(
+                  context, (route) => route.isFirst); // กลับไปยังหน้าหลัก
             },
           ),
         ],
@@ -78,7 +81,7 @@ class _Page3State extends State<Page3> {
                 // ปุ่มไปยังหน้าอื่น
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, '/page4');  // ไปยังหน้า page4
+                    Navigator.pushNamed(context, '/page4'); // ไปยังหน้า page4
                   },
                   child: Text('ไปหน้าที่สี่'),
                 ),
@@ -93,8 +96,10 @@ class _Page3State extends State<Page3> {
                 SizedBox(height: 10),
                 Image.asset(
                   menuDetails['image']!,
-                  width: MediaQuery.of(context).size.width * 0.8, // ปรับขนาดให้เหมาะสมกับหน้าจอ
-                  height: MediaQuery.of(context).size.width * 0.5, // ปรับขนาดให้เหมาะสมกับหน้าจอ
+                  width: MediaQuery.of(context).size.width *
+                      0.8, // ปรับขนาดให้เหมาะสมกับหน้าจอ
+                  height: MediaQuery.of(context).size.width *
+                      0.5, // ปรับขนาดให้เหมาะสมกับหน้าจอ
                   fit: BoxFit.cover,
                 ),
                 SizedBox(height: 10),
@@ -139,7 +144,7 @@ class _Page3State extends State<Page3> {
 
                 // ปุ่มเปิด YouTube
                 ElevatedButton(
-                  onPressed: _launchYouTube,  // เมื่อกดปุ่มจะเปิด YouTube
+                  onPressed: _launchYouTube, // เมื่อกดปุ่มจะเปิด YouTube
                   child: Text('เปิด YouTube'),
                 ),
               ],

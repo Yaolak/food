@@ -19,8 +19,9 @@ class _Page2State extends State<Page2> {
 
   // ฟังก์ชันสำหรับเปิด URL
   void _launchYouTube() async {
-    final Uri url = Uri.parse('vnd.youtube://youtu.be/bkMFerlrnUM?si=m5CprdD1z2qneFrG');
-  
+    final Uri url =
+        Uri.parse('vnd.youtube://youtu.be/bkMFerlrnUM?si=m5CprdD1z2qneFrG');
+
     // ignore: deprecated_member_use
     if (await canLaunch(url.toString())) {
       // ignore: deprecated_member_use
@@ -35,7 +36,8 @@ class _Page2State extends State<Page2> {
   final Map<String, String> menuDetails = {
     'title': 'สปาเก็ตตี้',
     'image': 'pic/spaghetti.jpg',
-    'description': 'สปาเก็ตตี้มะเขือเทศ \n\n วิธีทำสปาเก็ตตี้มะเขือเทศ \n 1 ต้มสปาเก็ตตี้ในน้ำเดือดจนสุกแล้วสะเด็ดน้ำ\n 2 ผัดกระเทียมและหอมใหญ่ในน้ำมันมะกอกจนหอม ใส่มะเขือเทศหั่นหรือซอสมะเขือเทศ ผัดจนเดือด \n 3 ใส่เส้นสปาเก็ตตี้ลงไปผัดกับซอสให้เข้ากัน\n 4 เสิร์ฟโรยใบโหระพาและชีสพาร์มีซาน',
+    'description':
+        'สปาเก็ตตี้มะเขือเทศ \n\n วิธีทำสปาเก็ตตี้มะเขือเทศ \n 1 ต้มสปาเก็ตตี้ในน้ำเดือดจนสุกแล้วสะเด็ดน้ำ\n 2 ผัดกระเทียมและหอมใหญ่ในน้ำมันมะกอกจนหอม ใส่มะเขือเทศหั่นหรือซอสมะเขือเทศ ผัดจนเดือด \n 3 ใส่เส้นสปาเก็ตตี้ลงไปผัดกับซอสให้เข้ากัน\n 4 เสิร์ฟโรยใบโหระพาและชีสพาร์มีซาน',
     'price': '189 บาท',
   };
 
@@ -63,7 +65,7 @@ class _Page2State extends State<Page2> {
           IconButton(
             icon: Icon(Icons.home),
             onPressed: () {
-              Navigator.pop(context);  // กลับไปหน้าหลัก
+              Navigator.pop(context); // กลับไปหน้าหลัก
             },
           ),
         ],
@@ -78,7 +80,7 @@ class _Page2State extends State<Page2> {
                 // ปุ่มไปยังหน้าอื่น
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, '/page3');  // ไปยังหน้า page3
+                    Navigator.pushNamed(context, '/page3'); // ไปยังหน้า page3
                   },
                   child: Text('ไปหน้าที่สาม'),
                 ),
@@ -93,8 +95,10 @@ class _Page2State extends State<Page2> {
                 SizedBox(height: 10),
                 Image.asset(
                   menuDetails['image']!,
-                  width: MediaQuery.of(context).size.width * 0.8, // ปรับขนาดให้เหมาะสมกับหน้าจอ
-                  height: MediaQuery.of(context).size.width * 0.5, // ปรับขนาดให้เหมาะสมกับหน้าจอ
+                  width: MediaQuery.of(context).size.width *
+                      0.8, // ปรับขนาดให้เหมาะสมกับหน้าจอ
+                  height: MediaQuery.of(context).size.width *
+                      0.5, // ปรับขนาดให้เหมาะสมกับหน้าจอ
                   fit: BoxFit.cover,
                 ),
                 SizedBox(height: 10),
@@ -139,7 +143,7 @@ class _Page2State extends State<Page2> {
 
                 // ปุ่มเปิด YouTube
                 ElevatedButton(
-                  onPressed: _launchYouTube,  // เมื่อกดปุ่มจะเปิด YouTube
+                  onPressed: _launchYouTube, // เมื่อกดปุ่มจะเปิด YouTube
                   child: Text('เปิด YouTube'),
                 ),
               ],
